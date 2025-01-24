@@ -1,0 +1,11 @@
+# environment 
+.env
+.env.local
+.env.development
+.env.production
+
+# not necessary 
+package-lock.json
+prisma/db/*
+node_modules/
+logs/*

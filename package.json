@@ -1,0 +1,46 @@
+{
+  "name": "@gatofreela/api",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "main": "./src/main.js",
+  "license": "Apache-2.0",
+  "author": "Sebastian Jn <sebastianjnuwu@gmail.com>",
+  "scripts": {
+    "dev": "node --env-file=.env  --watch src/main.js",
+    "start": "node --env-file=.env src/main.js",
+    "check": "npx @biomejs/biome check --write",
+    "lint": "npx @biomejs/biome lint --write",
+    "format": "npx @biomejs/biome format --write"
+  },
+  "imports": {
+    "#db/*": "./src/database/*.js",
+    "#routes/*": "./src/routes/*.js",
+    "#controllers/*": "./src/controllers/*.js",
+    "#functions/*": "./src/functions/*.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "joi": "^17.13.3",
+    "js-base64": "^3.7.7",
+    "morgan": "^1.10.0",
+    "uuid": "^11.0.5",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@prisma/client": "^6.2.1",
+    "prisma": "^6.2.1",
+    "sqlite3": "^5.1.7"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
