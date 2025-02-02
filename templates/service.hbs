@@ -1,0 +1,28 @@
+import { Injectable } from "@nestjs/common";
+import { PrismaService } from "./prisma.service";
+import { z } from "zod";
+
+@Injectable()
+export class {{ properCase name }}Service {
+  constructor(private readonly prismaService: PrismaService) {}
+
+  static get inputSchema() {
+    return z.object({
+      // data validation here...
+    });
+  }
+
+  private validateInput(input: unknown) {
+    const { data, error } = {{ properCase name }}Service.inputSchema.safeParse(input);
+    if (error)
+      throw new Error(error.errors.flatMap((e) => e.message).join("\n"));
+    return data;
+  }
+
+  async execute(input: z.infer<typeof {{ properCase name }}Service.inputSchema>) {
+    const validatedInput = this.validateInput(input);
+
+    // Implementation here...
+
+  }
+}

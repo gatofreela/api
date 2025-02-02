@@ -2,9 +2,9 @@ import { INestApplication } from "@nestjs/common";
 import { Test, TestingModule } from "@nestjs/testing";
 import * as request from "supertest";
 import { App } from "supertest/types";
-import { AppModule } from "../../src/modules/health-check.module";
+import { AppModule } from "../../src/main.module";
 
-describe("AppController (e2e)", () => {
+describe("E2E - HealthCheckRoute", () => {
   let app: INestApplication<App>;
 
   beforeEach(async () => {
@@ -16,7 +16,7 @@ describe("AppController (e2e)", () => {
     await app.init();
   });
 
-  it("/ (GET)", () => {
+  it("should return a 200 status code", () => {
     return request(app.getHttpServer())
       .get("/health-check")
       .expect(200)
