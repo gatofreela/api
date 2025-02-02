@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Run Biome Check
-        run: npm run biome check
+        run: npx biome check
 
   build:
     runs-on: ubuntu-latest
@@ -62,7 +62,7 @@ jobs:
         run: docker compose up test-db -d
 
       - name: test setup
-        run: sleep 10 && pnpm db:push:test
+        run: sleep 10 && npm run db:push:test
 
       - name: Run Vitest
         run: npm run test
