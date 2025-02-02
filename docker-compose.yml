@@ -3,7 +3,7 @@ version: '3.8'
 services:
   dev-db:
     image: postgres:latest
-    container_name: dev-db
+    container_name: gato-dev-db
     restart: always
     environment:
       POSTGRES_USER: gato
@@ -14,7 +14,7 @@ services:
 
   test-db:
     image: postgres:latest
-    container_name: test-db
+    container_name: gato-test-db
     restart: always
     environment:
       POSTGRES_USER: gato

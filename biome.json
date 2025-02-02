@@ -9,13 +9,16 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "style": {
+        "useImportType": "off"
+      }
     }
   },
   "organizeImports": {
     "enabled": true
   },
   "files": {
-    "ignore": ["node_modules"]
+    "ignore": ["node_modules", "dist"]
   }
 }
