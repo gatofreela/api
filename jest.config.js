@@ -1,5 +1,5 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} **/
-export default {
+module.exports = {
   moduleFileExtensions: ["js", "json", "ts"],
   rootDir: "test",
   testEnvironment: "node",
