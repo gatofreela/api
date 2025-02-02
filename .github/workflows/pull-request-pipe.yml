@@ -45,6 +45,8 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: postgresql://gato:gato@localhost:5433/gatodb
 
     steps:
       - name: Checkout code
