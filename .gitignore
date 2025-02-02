@@ -9,3 +9,4 @@ package-lock.json
 prisma/db/*
 node_modules/
 logs/*
+dist
