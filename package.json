@@ -2,7 +2,6 @@
   "name": "@gatofreela/api",
   "version": "1.0.0",
   "main": "./dist/server.js",
-  "type": "module",
   "scripts": {
     "docker:up": "docker compose up",
     "docker:down": "docker-compose down --rmi all --volumes",
