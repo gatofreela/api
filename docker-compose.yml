@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  dev-db:
+    image: postgres:latest
+    container_name: gato-dev-db
+    restart: always
+    environment:
+      POSTGRES_USER: gato
+      POSTGRES_PASSWORD: gato
+      POSTGRES_DB: gatodb
+    ports:
+      - "5432:5432"
+
+  test-db:
+    image: postgres:latest
+    container_name: gato-test-db
+    restart: always
+    environment:
+      POSTGRES_USER: gato
+      POSTGRES_PASSWORD: gato
+      POSTGRES_DB: gatodb
+    ports:
+      - "5433:5432"
+

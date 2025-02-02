@@ -1,0 +1,25 @@
+import { Test } from "@nestjs/testing";
+import { PrismaService } from "../../src/services/prisma.service";
+import { {{ properCase name }}Service } from "../../src/services/{{ kebabCase name }}.service";
+import { randomUUID } from "node:crypto";
+
+describe("{{ titleCase name }}Service", () => {
+  let prismaService: PrismaService;
+  let {{ camelCase name }}Service: {{ properCase name }}Service;
+
+  beforeEach(async () => {
+    const moduleRef = await Test.createTestingModule({
+      providers: [PrismaService, {{ properCase name }}Service],
+    }).compile();
+
+    {{ camelCase name }}Service = moduleRef.get({{ properCase name }}Service);
+  });
+
+  it("should ", async () => {
+    const user = await {{ camelCase name }}Service.execute({
+    
+    });
+
+    // Test here ...
+  });
+});
