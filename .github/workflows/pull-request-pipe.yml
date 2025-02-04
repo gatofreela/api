@@ -47,6 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DATABASE_URL: postgresql://gato:gato@localhost:5433/gatodb
+      JWT_SECRET: secret
 
     steps:
       - name: Checkout code
