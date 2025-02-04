@@ -1,10 +1,10 @@
-import { Test } from "@nestjs/testing";
-import { PrismaService } from "../../src/services/prisma.service";
-import { PasswordRegisterService } from "../../src/services/password-register.service";
 import { randomUUID } from "node:crypto";
-import { JwtModule, JwtService } from "@nestjs/jwt";
-import { HashPasswordService } from "../../src/services/hash-password.service";
 import { faker } from "@faker-js/faker";
+import { JwtModule, JwtService } from "@nestjs/jwt";
+import { Test } from "@nestjs/testing";
+import { HashPasswordService } from "../../src/services/hash-password.service";
+import { PasswordRegisterService } from "../../src/services/password-register.service";
+import { PrismaService } from "../../src/services/prisma.service";
 import { env } from "../../src/utils/config/env";
 
 describe("Password RegisterService", () => {

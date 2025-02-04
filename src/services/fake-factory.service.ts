@@ -1,9 +1,9 @@
-import { Injectable } from "@nestjs/common";
-import { PrismaService } from "./prisma.service";
-import { PasswordRegisterService } from "./password-register.service";
-import { faker } from "@faker-js/faker";
 import { randomUUID } from "node:crypto";
+import { faker } from "@faker-js/faker";
+import { Injectable } from "@nestjs/common";
 import { z } from "zod";
+import { PasswordRegisterService } from "./password-register.service";
+import { PrismaService } from "./prisma.service";
 
 @Injectable()
 export class FakeFactoryService {

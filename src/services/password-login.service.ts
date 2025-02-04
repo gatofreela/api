@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
-import { PrismaService } from "./prisma.service";
 import { JwtService, JwtSignOptions } from "@nestjs/jwt";
 import { z } from "zod";
+import { PrismaService } from "./prisma.service";
 import { VerifyPasswordService } from "./verify-password.service";
 
 @Injectable()

@@ -1,6 +1,6 @@
+import { pbkdf2Sync, randomBytes } from "node:crypto";
 import { Injectable } from "@nestjs/common";
 import { z } from "zod";
-import { randomBytes, pbkdf2Sync } from "node:crypto";
 
 @Injectable()
 export class HashPasswordService {

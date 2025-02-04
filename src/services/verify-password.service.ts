@@ -1,6 +1,6 @@
+import { pbkdf2Sync } from "node:crypto";
 import { Injectable } from "@nestjs/common";
 import { z } from "zod";
-import { pbkdf2Sync } from "node:crypto";
 
 @Injectable()
 export class VerifyPasswordService {

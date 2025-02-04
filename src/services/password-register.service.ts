@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
-import { PrismaService } from "./prisma.service";
-import { z } from "zod";
 import { JwtService, JwtSignOptions } from "@nestjs/jwt";
+import { z } from "zod";
 import { HashPasswordService } from "./hash-password.service";
+import { PrismaService } from "./prisma.service";
 
 @Injectable()
 export class PasswordRegisterService {
