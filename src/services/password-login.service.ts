@@ -1,6 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { JwtService, JwtSignOptions } from "@nestjs/jwt";
 import { z } from "zod";
+import { JwtContent } from "../types/jwt-content";
 import { PrismaService } from "./prisma.service";
 import { VerifyPasswordService } from "./verify-password.service";
 
@@ -58,7 +59,7 @@ export class PasswordLoginService {
       throw new Error("Invalid password");
     }
 
-    const jwtContent = {
+    const jwtContent: JwtContent = {
       userId: user.id,
       email: user.email,
       imageUrl: user.logo?.id,
@@ -66,11 +67,9 @@ export class PasswordLoginService {
 
     const jwt = this.jwtService.sign(jwtContent, config);
 
-    user.password = null;
-
     return {
       jwt,
-      user,
+      user: { ...user, password: undefined, salt: undefined },
     };
   }
 }

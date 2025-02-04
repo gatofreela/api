@@ -1,0 +1,4 @@
+import { createZodDto } from "nestjs-zod";
+import { {{ properCase name }}Service } from "../services/{{ kebabCase name }}.service";
+
+export class {{ properCase name }}Dto extends createZodDto({{ properCase name }}Service.inputSchema) {}

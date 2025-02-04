@@ -1,11 +1,11 @@
 import { Module } from "@nestjs/common";
 import { JwtModule, JwtService } from "@nestjs/jwt";
-import { FakeFactoryService } from "../../src/services/fake-factory.service";
-import { HashPasswordService } from "../../src/services/hash-password.service";
-import { PasswordRegisterService } from "../../src/services/password-register.service";
-import { PrismaService } from "../../src/services/prisma.service";
-import { VerifyPasswordService } from "../../src/services/verify-password.service";
-import { env } from "../../src/utils/config/env";
+import { FakeFactoryService } from "../services/fake-factory.service";
+import { HashPasswordService } from "../services/hash-password.service";
+import { PasswordRegisterService } from "../services/password-register.service";
+import { PrismaService } from "../services/prisma.service";
+import { VerifyPasswordService } from "../services/verify-password.service";
+import { env } from "../utils/config/env";
 
 @Module({
   imports: [

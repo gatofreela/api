@@ -13,11 +13,17 @@ export class FakeFactoryService {
   ) {}
 
   async generateUser(
-    props?: Partial<z.infer<typeof PasswordRegisterService.inputSchema>>,
+    props?: Partial<
+      Parameters<typeof PasswordRegisterService.prototype.execute>[0]
+    >,
+    config?: Parameters<typeof PasswordRegisterService.prototype.execute>[1],
   ) {
-    return this.registerService.execute({
-      email: props?.email ?? `${randomUUID()}${faker.internet.email()}`,
-      password: props?.password ?? faker.internet.password(),
-    });
+    return this.registerService.execute(
+      {
+        email: props?.email ?? `${randomUUID()}${faker.internet.email()}`,
+        password: props?.password ?? faker.internet.password(),
+      },
+      config,
+    );
   }
 }

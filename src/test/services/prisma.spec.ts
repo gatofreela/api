@@ -1,5 +1,5 @@
 import { Test } from "@nestjs/testing";
-import { PrismaService } from "../../src/services/prisma.service";
+import { PrismaService } from "../../services/prisma.service";
 
 describe("Prisma service", () => {
   let prismaService: PrismaService;

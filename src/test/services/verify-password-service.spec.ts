@@ -1,8 +1,8 @@
 import { randomUUID } from "node:crypto";
 import { Test } from "@nestjs/testing";
-import { HashPasswordService } from "../../src/services/hash-password.service";
-import { PrismaService } from "../../src/services/prisma.service";
-import { VerifyPasswordService } from "../../src/services/verify-password.service";
+import { HashPasswordService } from "../../services/hash-password.service";
+import { PrismaService } from "../../services/prisma.service";
+import { VerifyPasswordService } from "../../services/verify-password.service";
 
 describe("Verify PasswordService", () => {
   let prismaService: PrismaService;

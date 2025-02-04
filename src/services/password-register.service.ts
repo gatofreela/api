@@ -29,7 +29,10 @@ export class PasswordRegisterService {
 
   async execute(
     input: z.infer<typeof PasswordRegisterService.inputSchema>,
-    config?: Pick<Partial<JwtSignOptions>, "expiresIn" | "algorithm">,
+    config?: Pick<
+      Partial<JwtSignOptions>,
+      "expiresIn" | "algorithm" | "secret"
+    >,
   ) {
     const validatedInput = this.validateInput(input);
 
@@ -83,11 +86,9 @@ export class PasswordRegisterService {
 
     const jwt = this.jwtService.sign(jwtContent, config);
 
-    user.password = null;
-
     return {
       jwt,
-      user,
+      user: { ...user, password: undefined, salt: undefined },
     };
   }
 }

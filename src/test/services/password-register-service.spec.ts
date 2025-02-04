@@ -2,10 +2,10 @@ import { randomUUID } from "node:crypto";
 import { faker } from "@faker-js/faker";
 import { JwtModule, JwtService } from "@nestjs/jwt";
 import { Test } from "@nestjs/testing";
-import { HashPasswordService } from "../../src/services/hash-password.service";
-import { PasswordRegisterService } from "../../src/services/password-register.service";
-import { PrismaService } from "../../src/services/prisma.service";
-import { env } from "../../src/utils/config/env";
+import { HashPasswordService } from "../../services/hash-password.service";
+import { PasswordRegisterService } from "../../services/password-register.service";
+import { PrismaService } from "../../services/prisma.service";
+import { env } from "../../utils/config/env";
 
 describe("Password RegisterService", () => {
   let prismaService: PrismaService;
@@ -39,6 +39,7 @@ describe("Password RegisterService", () => {
 
     expect(user.id).toBe(decoded.userId);
     expect(user.email).toBe(decoded.email);
-    expect(user.password).toBeNull();
+    expect(user.password).toBeUndefined();
+    expect(user.salt).toBeUndefined();
   });
 });
