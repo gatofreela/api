@@ -1,6 +1,6 @@
-export default (
+module.exports = (
   /** @type {import('plop').NodePlopAPI} */
-  plop,
+  plop
 ) => {
   plop.setGenerator("e2e-test", {
     description: "Gerar um novo e2e test",
