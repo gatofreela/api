@@ -3,7 +3,7 @@ name: On pull requests
 on:
   pull_request:
     branches:
-      - main
+      - master
       - develop
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --force
 
       - name: Run Biome Check
         run: npx biome check
@@ -38,7 +38,7 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --force
 
       - name: Build Next.js Application
         run: npm run build
@@ -47,6 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DATABASE_URL: postgresql://gato:gato@localhost:5433/gatodb
+      JWT_SECRET: secret
 
     steps:
       - name: Checkout code
@@ -58,7 +59,7 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --force
 
       - name: launch docker
         run: docker compose up test-db -d
