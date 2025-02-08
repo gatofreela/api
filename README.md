@@ -2,6 +2,7 @@
 
 ## Tecnologias usadas
 
+- [NodeJS](https://nodejs.org/en/) - v20.7.0
 - [NestJS](https://nestjs.com/)
 - [Prisma](https://prisma.io/)
 - [Plop](https://plopjs.com/)
@@ -35,6 +36,7 @@ Antes de todo commit, execute o comando `npm run pipe` para assegurar que a api 
 - Execute os seguintes comandos:
 
 ```bash
-npm install
+# Estamos usando force, pois o nestjs-zod tem uma versão menor do nestjs/common, mas é compatível.
+npm install --force
 npm dev
 ```
