@@ -32,6 +32,18 @@ export class SendMailService {
     const validatedInput = this.validateInput(input);
 
     // Implementation here...
+    const {data, error} = await this.sendMail.emails.send({
+      from: validatedInput.from,
+      to: [validatedInput.to],
+      subject: validatedInput.subject,
+      html: validatedInput.content
+
+    })
+
+    if(error) {
+      throw new Error(error.message)
+    }
+    return data;
 
   }
 }
