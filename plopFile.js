@@ -32,7 +32,7 @@ module.exports = (
     actions: [
       {
         type: "add",
-        path: "test/services/{{kebabCase name}}-service.spec.ts",
+        path: "src/test/services/{{kebabCase name}}-service.spec.ts",
         templateFile: "templates/service-test.hbs",
       },
       {
