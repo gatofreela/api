@@ -48,6 +48,7 @@ jobs:
     env:
       DATABASE_URL: postgresql://gato:gato@localhost:5433/gatodb
       JWT_SECRET: secret
+      RESEND_API_KEY: secret
 
     steps:
       - name: Checkout code
