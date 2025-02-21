@@ -37,3 +37,7 @@ model Image {
 
     createdAt DateTime @default(now())
 }
+
+
+
+
