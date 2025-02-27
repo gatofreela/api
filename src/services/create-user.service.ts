@@ -1,6 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { z } from "zod";
 import { PrismaService } from "./prisma.service";
+import { roles, rolesEnum } from "src/types/roles";
 
 @Injectable()
 export class CreateUserService {
@@ -11,13 +12,23 @@ export class CreateUserService {
       name: z.string().optional(),
       email: z.string().email(),
       image: z.string().optional(),
+      role: z.enum(rolesEnum),
     });
   }
 
   private validateInput(input: unknown) {
-    const { data, error } = CreateUserService.inputSchema.safeParse(input);
-    if (error)
-      throw new Error(error.errors.flatMap((e) => e.message).join("\n"));
+    const parsed = CreateUserService.inputSchema.safeParse(input);
+
+    if (!parsed.success) {
+      throw new Error(parsed.error.errors[0].message);
+    }
+
+    const data = parsed.data;
+
+    if (!roles.includes(data.role)) {
+      throw new Error(`Invalid role: ${data.role}`);
+    }
+
     return data;
   }
 
@@ -27,6 +38,7 @@ export class CreateUserService {
     const user = await this.prismaService.user.create({
       data: {
         ...validatedInput,
+        role: validatedInput.role.toUpperCase(),
       },
     });
 

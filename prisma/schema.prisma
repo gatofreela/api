@@ -17,6 +17,7 @@ model User {
 
     password String?
     salt     String?
+    role     String
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
@@ -37,7 +38,3 @@ model Image {
 
     createdAt DateTime @default(now())
 }
-
-
-
-
