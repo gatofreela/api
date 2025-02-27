@@ -1,69 +1,31 @@
 datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 model User {
-    id String @id @default(cuid())
-
-    email String @unique
-
-    name          String?
-    emailVerified DateTime?
-
-
-    password String?
-    salt     String?
-    role     String
-
-
-
-
-
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-
-    logo Image?
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  emailVerified DateTime?
+  password      String?
+  salt          String?
+  role          String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  logo          Image?
 }
-
-
-
-
-
-
-
-
 
 model Image {
-    id String @id @default(cuid())
-
-    url String
-
-    size        Int
-    storageName String
-
-    user   User?   @relation(fields: [userId], references: [id])
-    userId String? @unique
-
-    createdAt DateTime @default(now())
+  id          String  @id @default(cuid())
+  url         String
+  size        Int
+  storageName String
+  user        User?   @relation(fields: [userId], references: [id])
+  userId      String? @unique
+  createdAt DateTime @default(now())
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

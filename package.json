@@ -9,6 +9,7 @@
     "db:push:test": "dotenv -e .env.test -e .env -- prisma db push",
     "db:generate": "prisma generate",
     "db:all": "npm run db:push && npm run db:push:test && npm run db:generate",
+   "db:test:android:all": "prisma db push --schema=prisma/sqlite.schema.prisma && prisma generate --schema=prisma/sqlite.schema.prisma",
     "db:studio": "prisma studio",
     "typecheck": "tsc --noEmit && biome check --write --unsafe",
     "build": "nest build",
