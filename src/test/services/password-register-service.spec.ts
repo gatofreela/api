@@ -31,6 +31,10 @@ describe("Password RegisterService", () => {
     const { jwt, user } = await passwordRegisterService.execute({
       email: `${randomUUID()}${faker.internet.email()}`,
       password: faker.internet.password(),
+
+      role: "USER",
+
+
     });
 
     const decoded = jwtService.decode(jwt);
