@@ -15,15 +15,28 @@ model User {
     name          String?
     emailVerified DateTime?
 
+
     password String?
     salt     String?
     role     String
+
+
+
+
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 
     logo Image?
 }
+
+
+
+
+
+
+
+
 
 model Image {
     id String @id @default(cuid())
@@ -38,3 +51,19 @@ model Image {
 
     createdAt DateTime @default(now())
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

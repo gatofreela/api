@@ -1,6 +1,9 @@
 import { Injectable } from "@nestjs/common";
 import { JwtService, JwtSignOptions } from "@nestjs/jwt";
+
 import { rolesEnum } from "src/types/roles";
+
+
 import { z } from "zod";
 import { HashPasswordService } from "./hash-password.service";
 import { PrismaService } from "./prisma.service";
@@ -17,7 +20,10 @@ export class PasswordRegisterService {
     return z.object({
       email: z.string().email(),
       password: z.string(),
+
       role: z.enum(rolesEnum),
+
+
     });
   }
 
@@ -60,7 +66,10 @@ export class PasswordRegisterService {
           email: validatedInput.email,
           password: hash,
           salt,
+
           role: validatedInput.role,
+
+
         },
 
         include: {

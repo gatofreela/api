@@ -1,15 +1,22 @@
 import { Injectable, UnauthorizedException } from "@nestjs/common";
+
 import { z } from "zod";
 import { HashPasswordService } from "./hash-password.service";
 import { PrismaService } from "./prisma.service";
 import { VerifyPasswordService } from "./verify-password.service";
+
+
 
 @Injectable()
 export class UpdatePasswordService {
   constructor(
     private readonly prismaService: PrismaService,
     private readonly verifyPasswordService: VerifyPasswordService,
+
     private readonly hashPasswordService: HashPasswordService,
+
+
+
   ) {}
 
   static get inputSchema() {
