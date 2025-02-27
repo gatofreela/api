@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
+import { roles, rolesEnum } from "src/types/roles";
 import { z } from "zod";
 import { PrismaService } from "./prisma.service";
-import { roles, rolesEnum } from "src/types/roles";
 
 @Injectable()
 export class CreateUserService {

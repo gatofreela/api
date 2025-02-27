@@ -19,6 +19,7 @@ describe("Prisma service", () => {
     const email = `test${randomUUID()}@mail.com`;
     const user = await createUserService.execute({
       email,
+      role: "USER",
     });
 
     expect(user.email).toBe(email);

@@ -22,7 +22,7 @@ export class FakeFactoryService {
       {
         email: props?.email ?? `${randomUUID()}${faker.internet.email()}`,
         password: props?.password ?? faker.internet.password(),
-        role: props?.role ?? "USER"
+        role: props?.role ?? "USER",
       },
       config,
     );

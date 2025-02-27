@@ -1,10 +1,10 @@
+import { randomUUID } from "node:crypto";
+import { UnauthorizedException } from "@nestjs/common";
 import { Test } from "@nestjs/testing";
+import { HashPasswordService } from "../../services/hash-password.service";
 import { PrismaService } from "../../services/prisma.service";
 import { UpdatePasswordService } from "../../services/update-password.service";
 import { VerifyPasswordService } from "../../services/verify-password.service";
-import { HashPasswordService } from "../../services/hash-password.service";
-import { UnauthorizedException } from "@nestjs/common";
-import { randomUUID } from "crypto";
 
 describe("UpdatePasswordService", () => {
   let updatePasswordService: UpdatePasswordService;
@@ -92,9 +92,9 @@ describe("UpdatePasswordService", () => {
 
     await expect(
       updatePasswordService.execute({
-      userId: randomUUID(),
-      Password: "password",
-      newPassword: "newPassword",
+        userId: randomUUID(),
+        Password: "password",
+        newPassword: "newPassword",
       }),
     ).rejects.toThrow(UnauthorizedException);
   });
@@ -117,4 +117,3 @@ describe("UpdatePasswordService", () => {
     ).rejects.toThrow(UnauthorizedException);
   });
 });
-
